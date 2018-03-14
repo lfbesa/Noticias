@@ -20,9 +20,11 @@
         <td><%= news.bajada %></td>
         <td><%= news.cuerpo %></td>
         <td><%= news.tiempo %></td>
+        <% if current_user %>
         <td><%= link_to 'Show', news %></td>
         <td><%= link_to 'Edit', edit_news_path(news) %></td>
         <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
