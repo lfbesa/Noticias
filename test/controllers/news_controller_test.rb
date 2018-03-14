@@ -17,7 +17,7 @@ class NewsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create news" do
     assert_difference('News.count') do
-      post news_index_url, params: { news: {  } }
+      post news_index_url, params: { news: { bajada: @news.bajada, cuerpo: @news.cuerpo, tiempo: @news.tiempo, titular: @news.titular } }
     end
 
     assert_redirected_to news_url(News.last)
@@ -34,7 +34,7 @@ class NewsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update news" do
-    patch news_url(@news), params: { news: {  } }
+    patch news_url(@news), params: { news: { bajada: @news.bajada, cuerpo: @news.cuerpo, tiempo: @news.tiempo, titular: @news.titular } }
     assert_redirected_to news_url(@news)
   end
 

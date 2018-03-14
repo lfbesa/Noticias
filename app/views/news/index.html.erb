@@ -5,21 +5,25 @@
 <table>
   <thead>
     <tr>
+      <th>Titular</th>
+      <th>Bajada</th>
+      <th>Cuerpo</th>
+      <th>Tiempo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% if current_user %>
-      <% @news.each do |news| %>
-        <tr>
-          <td><%= link_to 'Show', news %></td>
-          <td><%= link_to 'Edit', edit_news_path(news) %></td>
-          <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    <% else %>
-      <h1>Debes iniciar sesion </h1>
+    <% @news.each do |news| %>
+      <tr>
+        <td><%= news.titular %></td>
+        <td><%= news.bajada %></td>
+        <td><%= news.cuerpo %></td>
+        <td><%= news.tiempo %></td>
+        <td><%= link_to 'Show', news %></td>
+        <td><%= link_to 'Edit', edit_news_path(news) %></td>
+        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
