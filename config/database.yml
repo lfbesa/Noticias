@@ -86,4 +86,4 @@ production:
   <<: *default
   database: noticias_production
   username: noticias
-  password: <%= ingenieria2 %>
+  password: <%= 'ingenieria2' %>
