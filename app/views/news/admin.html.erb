@@ -31,7 +31,8 @@
         <td><%= l(news.created_at, format: '%B, %d %Y %H:%M:%S') %></td>
         <td><%= news.opinions.length %></td>
         <% if current_user %>
-
+        <td><%= link_to 'Edit', edit_news_path(news) %></td>
+        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
@@ -39,8 +40,8 @@
 </table>
 <br>
 <% if current_user %>
-  <% current_user.update_attribute :admin, true %>
   <% if current_user.admin %>
-    <%= link_to 'Sitio administracion', 'news/admin' %>
+    <%= link_to 'Nueva Noticia', new_news_path %>
   <% end %>
 <% end %>
+<%= link_to 'Back', news_index_path %>

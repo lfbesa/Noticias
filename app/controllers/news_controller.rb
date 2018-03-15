@@ -12,6 +12,10 @@ class NewsController < ApplicationController
   def show
   end
 
+  def admin
+    @news = News.all.sort_by { |a| [ a.created_at] }.reverse!
+  end
+
   # GET /news/new
   def new
     @news = News.new
