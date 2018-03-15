@@ -4,7 +4,6 @@ class CreateNews < ActiveRecord::Migration[5.1]
       t.string :titular
       t.string :bajada
       t.string :cuerpo
-      t.datetime :tiempo
 
       t.timestamps
     end
