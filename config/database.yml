@@ -86,4 +86,4 @@ production:
   <<: *default
   database: noticias_production
   username: noticias
-  password: <%= ENV['NOTICIAS_DATABASE_PASSWORD'] %>
+  password: <%= ingenieria2 %>
