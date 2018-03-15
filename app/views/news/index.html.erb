@@ -8,7 +8,7 @@
       <th>Titular</th>
       <th>Bajada</th>
       <th>Cuerpo</th>
-      <th>Tiempo</th>
+      <th>Fecha</th>
       <th>Comentarios</th>
       <th colspan="3"></th>
     </tr>
@@ -19,8 +19,16 @@
       <tr>
         <td><%= link_to news.titular, news_path(news) %></td>
         <td><%= news.bajada %></td>
-        <td><%= news.cuerpo %></td>
-        <td><%= news.tiempo %></td>
+        <% if news.cuerpo.length >500 %>
+          <% i = 500 %>
+          <% while news.cuerpo[i] != " " do %>
+            <% i = i - 1%>
+          <% end %>
+          <td><%= news.cuerpo[0,i]<<'...' %></td>
+        <% else %>
+          <td><%= news.cuerpo %></td>
+        <% end %>
+        <td><%= l(news.created_at, format: '%B, %d %Y %H:%M:%S') %></td>
         <td><%= news.comments.length %></td>
         <% if current_user %>
         <td><%= link_to 'Show', news %></td>
@@ -34,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New News', new_news_path %>
+<%= link_to 'Nueva Noticia', new_news_path %>

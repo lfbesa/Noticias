@@ -13,25 +13,20 @@
 
   <div class="field">
     <%= form.label :titular %>
-    <%= form.text_field :titular, id: :news_titular %>
+    <%= form.text_field :titular, id: :news_titular, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :bajada %>
-    <%= form.text_field :bajada, id: :news_bajada %>
+    <%= form.text_field :bajada, id: :news_bajada, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :cuerpo %>
-    <%= form.text_field :cuerpo, id: :news_cuerpo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tiempo %>
-    <%= form.datetime_select :tiempo, id: :news_tiempo, :disabled=>true %>
+    <%= form.text_field :cuerpo, id: :news_cuerpo, class: 'form-control', required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>
