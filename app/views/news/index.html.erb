@@ -17,7 +17,7 @@
   <tbody>
     <% @news.each do |news| %>
       <tr>
-        <td><%= news.titular %></td>
+        <td><%= link_to news.titular, news_path(news) %></td>
         <td><%= news.bajada %></td>
         <td><%= news.cuerpo %></td>
         <td><%= news.tiempo %></td>
