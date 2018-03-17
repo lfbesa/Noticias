@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<h1>News</h1>
+<h1>Sitio Administración</h1>
 
 <table>
   <thead>
@@ -19,8 +18,8 @@
       <tr>
         <td><%= link_to news.titular, news_path(news) %></td>
         <td><%= news.bajada %></td>
-        <% if news.cuerpo.length >500 %>
-          <% i = 500 %>
+        <% if news.cuerpo.length >100 %>
+          <% i = 100 %>
           <% while news.cuerpo[i] != " " do %>
             <% i = i - 1%>
           <% end %>

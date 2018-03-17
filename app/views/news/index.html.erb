@@ -1,48 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="grid2">
+  <h1 class="title">News</h1>
 
-<h1>News</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Titular</th>
-      <th>Bajada</th>
-      <th>Cuerpo</th>
-      <th>Fecha</th>
-      <th>Comentarios</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @news.each do |news| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to news.titular, news_path(news) %></td>
-        <td><%= news.bajada %></td>
-        <% if news.cuerpo.length >500 %>
-          <% i = 500 %>
-          <% while news.cuerpo[i] != " " do %>
-            <% i = i - 1%>
-          <% end %>
-          <td><%= news.cuerpo[0,i]<<'...' %></td>
-        <% else %>
-          <td><%= news.cuerpo %></td>
-        <% end %>
-        <td><%= l(news.created_at, format: '%B, %d %Y %H:%M:%S') %></td>
-        <td><%= news.opinions.length %></td>
-        <% if current_user %>
-
-        <% end %>
+        <th>Titular</th>
+        <th>Bajada</th>
+        <th>Cuerpo</th>
+        <th>Fecha</th>
+        <th>Comentarios</th>
+        <th colspan="3"></th>
       </tr>
+    </thead>
+    <tbody>
+      <% @news.each do |news| %>
+        <div class="well">
+        <tr>
+          <td><%= link_to news.titular, news_path(news) %></td>
+          <td><%= news.bajada %></td>
+          <% if news.cuerpo.length >500 %>
+            <% i = 500 %>
+            <% while news.cuerpo[i] != " " do %>
+              <% i = i - 1%>
+            <% end %>
+            <td><%= news.cuerpo[0,i]<<'...' %></td>
+          <% else %>
+            <td><%= news.cuerpo %></td>
+          <% end %>
+          <td><%= l(news.created_at, format: '%B, %d %Y %H:%M:%S') %></td>
+          <td><%= news.opinions.length %></td>
+        </tr>
+      </div>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <% if current_user %>
+    <% if current_user.email == 'felipe_besa@hotmail.com' %>
+      <% current_user.update_attribute :admin, true %>
     <% end %>
-  </tbody>
-</table>
-<br>
-<% if current_user %>
-  <% if current_user.email == 'felipe_besa@hotmail.com' %>
-    <% current_user.update_attribute :admin, true %>
+    <% if current_user.admin %>
+      <%= link_to 'Sitio administracion', 'news/admin' %>
+    <% end %>
   <% end %>
-  <% if current_user.admin %>
-    <%= link_to 'Sitio administracion', 'news/admin' %>
-  <% end %>
-<% end %>
+</div>
