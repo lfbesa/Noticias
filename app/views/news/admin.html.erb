@@ -502,10 +502,31 @@ background-color: #ebebeb;
 .table100.ver5 .ps__rail-y .ps__thumb-y::before {
 background-color: #cccccc;
 }
+.button {
+  background: #76B3FA;
+  border-radius: 100px;
+  padding: 20px 60px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.45em;
+  margin: 0 15px;
+}
 
+/* Hover state animation applied here */
+.button:hover {
+  -webkit-animation: hover 1200ms linear 2 alternate;
+  animation: hover 1200ms linear 2 alternate;
+}
+
+/* Active state animation applied here */
+.button:active {
+  -webkit-animation: active 1200ms ease 1 alternate;
+  animation: active 1200ms ease 1 alternate;
+  background: #5F9BE0;}
 
 </style>
-<h1>Sitio Administración</h1>
+
+<h1 style="margin: 30px;">Sitio Administración</h1>
 <div class="limiter">
 	<div class="container-table100">
 		<div class="wrap-table100">
@@ -557,7 +578,7 @@ background-color: #cccccc;
 <br>
 <% if current_user %>
   <% if current_user.admin %>
-    <%= link_to 'Nueva Noticia', new_news_path %>
+    <%= link_to 'Nueva Noticia', new_news_path, , class: "button" %>
   <% end %>
 <% end %>
-<%= link_to 'Back', news_index_path %>
+<%= link_to 'Back', news_index_path, , class: "button" %>
