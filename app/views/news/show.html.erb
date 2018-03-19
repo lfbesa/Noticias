@@ -412,7 +412,7 @@ textarea.input1 + .shadow-input1 {
 </div>
 
 <div class ="container">
-  <div class="h2"><h2>Commentarios</h2></div>
+  <div class="h2"><h2>Comentarios</h2></div>
   <% @news.opinions.each do |opinion| %>
     <div class="commentario">
       <h6><strong><%= opinion.usuario %></strong></h6>
@@ -423,7 +423,7 @@ textarea.input1 + .shadow-input1 {
 
   <% end %>
 </div>
-<% if current_user %>
+
 <div class="contact1">
 		<div class="container-contact1">
       <span class="contact1-form-title">
@@ -431,7 +431,11 @@ textarea.input1 + .shadow-input1 {
       </span>
       <%= form_for([@news, @news.opinions.build], :class=>"contact1-form validate-form") do |f| %>
         <div class="wrap-input1 validate-input" data-validate = "Name is required">
+          <% if current_user %>
           <%= f.text_field :usuario, required: true,  :value => current_user.email, class: "input1" %>
+          <%else %>
+          <%= f.text_field :usuario, required: true,  :value => "Usuario", class: "input1" %>
+          <% end %>
           <span class="shadow-input1"></span>
         </div>
         <div class="wrap-input1 validate-input" data-validate = "Message is required">
@@ -445,15 +449,16 @@ textarea.input1 + .shadow-input1 {
           <%= f.submit "Agregar", :id => "save-button", class: "contact1-form-btn" %>
         </div>
       <% end %>
-    <% end %>
   </div>
 </div>
 <div class="contact1">
 	<div class="container-contact1">
+    <% if current_user %>
     <% if current_user.admin %>
     <div class="container-contact1-form-btn" style="color: #fff; font-size: 20px;">
     <%= link_to 'Edit', edit_news_path(@news),  class: "contact1-form-btn" %>
     </div> |
+    <% end %>
     <% end %>
     <div class="container-contact1-form-btn" style="color: #fff; font-size: 20px;">
     <%= link_to 'Back', news_index_path, class: "contact1-form-btn" %>

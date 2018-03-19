@@ -13,12 +13,28 @@ class NewsController < ApplicationController
   end
 
   def admin
-    @news = News.all.sort_by { |a| [ a.created_at] }.reverse!
+    if current_user
+      if current_user.admin
+          @news = News.all.sort_by { |a| [ a.created_at] }.reverse!
+      else
+        redirect_to news_index_path
+      end
+    else
+      redirect_to news_index_path
+    end
   end
 
   # GET /news/new
   def new
-    @news = News.new
+    if current_user
+      if current_user.admin
+          @news = News.new
+      else
+        redirect_to news_index_path
+      end
+    else
+      redirect_to news_index_path
+    end
   end
 
   # GET /news/1/edit

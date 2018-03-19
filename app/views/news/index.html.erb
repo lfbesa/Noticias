@@ -212,6 +212,32 @@ h2 a {
 	width: 215px;
 	height: 105px;
 }
+.faa {
+  min-width: 193px;
+  height: 50px;
+  border-radius: 25px;
+  background: #57b846;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.contact1-form-btn:hover {
+  background: #333333;
+}
 
 
 
@@ -256,7 +282,7 @@ h2 a {
           <% current_user.update_attribute :admin, true %>
         <% end %>
         <% if current_user.admin %>
-          <%= link_to 'Sitio administracion', 'news/admin', class: "faa" %>
+          <%= link_to 'Sitio administracion', 'news/admin', class: "" %>
         <% end %>
       <% end %>
     </div>
