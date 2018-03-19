@@ -246,7 +246,7 @@
                 <ul>
                     <li><%= link_to "Home", news_index_path %></li>
                     <% if user_signed_in? %>
-                      <li style="color: #fff;"> Welcome <strong><%= current_user.email %>!</strong></li>
+                      <li style="color: #fff;"> Hello <strong><%= current_user.email %>!</strong></li>
                       <li><%= link_to 'Edit profile', edit_user_registration_path %> </li>
                       <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
                     <% else %>
