@@ -238,7 +238,27 @@ h2 a {
 .contact1-form-btn:hover {
   background: #333333;
 }
+.button {
+  background: #76B3FA;
+  border-radius: 100px;
+  padding: 20px 60px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.45em;
+  margin: 0 15px;
+}
 
+/* Hover state animation applied here */
+.button:hover {
+  -webkit-animation: hover 1200ms linear 2 alternate;
+  animation: hover 1200ms linear 2 alternate;
+}
+
+/* Active state animation applied here */
+.button:active {
+  -webkit-animation: active 1200ms ease 1 alternate;
+  animation: active 1200ms ease 1 alternate;
+  background: #5F9BE0;}
 
 
 </style>
@@ -282,7 +302,7 @@ h2 a {
           <% current_user.update_attribute :admin, true %>
         <% end %>
         <% if current_user.admin %>
-          <%= link_to 'Sitio administracion', 'news/admin', class: "" %>
+          <%= link_to 'Sitio administracion', 'news/admin', class: "button" %>
         <% end %>
       <% end %>
     </div>
