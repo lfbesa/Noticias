@@ -1,3 +1,37 @@
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.algo {margin: 50px;}
+</style>
+<div class="algo">
 <%= form_with(model: news, local: true) do |form| %>
   <% if news.errors.any? %>
     <div id="error_explanation">
@@ -12,17 +46,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :titular %>
+    <%= form.label :titular, class: 'floatLabel' %>
     <%= form.text_field :titular, id: :news_titular, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :bajada %>
+    <%= form.label :bajada, class: 'floatLabel' %>
     <%= form.text_field :bajada, id: :news_bajada, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :cuerpo %>
+    <%= form.label :cuerpo, class: 'floatLabel' %>
     <%= form.text_field :cuerpo, id: :news_cuerpo, class: 'form-control', required: true %>
   </div>
 
@@ -30,3 +64,4 @@
     <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>
+</div>

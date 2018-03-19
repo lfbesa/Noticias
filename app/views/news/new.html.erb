@@ -1,5 +1,10 @@
-<h1>New News</h1>
-
+<style>
+  h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 40px; }
+  .algo {padding-left: 40px;}
+</style>
+<div class="algo">
+  <h1>Nueva Noticia</h1>
+</div>
 <%= render 'form', news: @news %>
 
 <%= link_to 'Back', news_index_path %>
