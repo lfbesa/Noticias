@@ -19,4 +19,20 @@ module Response
     }
 
   end
+  def json_response3(object, status = :ok)
+     {
+       id: object.id,
+        author: object.author,
+        comment: object.comment,
+        created_at: object.created_at
+    }
+  end
+  def json_response4(object, status = :ok)
+    {
+        object: object.map do |awesome|
+          json_response3( awesome)
+        end
+    }
+
+  end
 end

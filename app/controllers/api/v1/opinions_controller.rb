@@ -7,30 +7,30 @@ module Api
 
       # GET /news/:news_id/opinions
       def index
-        json_response(@news.opinions)
+        render json: json_response4(@news.opinions)
       end
 
       # GET /news/:news_id/opinions/:id
       def show
-        json_response(@opinion)
+        render json: json_response3(@opinion)
       end
 
       # POST /news/:news_id/opinions
       def create
         @op = @news.opinions.create!(opinion_params)
-        json_response(@op, :created)
+        render json: json_response3(@op, :created)
       end
 
       # PUT /news/:news_id/opinions/:id
       def update
         @opinion.update(opinion_params)
-        json_response(@opinion)
+        render json: json_response3(@opinion)
       end
 
       # DELETE /news/:news_id/opinions/:id
       def destroy
         @opinion.destroy
-        json_response(@opinion)
+        render json: json_response3(@opinion)
       end
 
       private
