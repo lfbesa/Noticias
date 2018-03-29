@@ -4,31 +4,31 @@ module Api
 
       def index
         @news = News.all
-        json_response2(@news)
+        render json: json_response2(@news)
       end
 
       def show
-        json_response(News.find(params[:id]))
+        render json: json_response(News.find(params[:id]))
       end
 
       # POST /news
       def create
         @news = News.create!(news_params)
-        json_response(@news, :created)
+        render json: json_response(@news, :created)
       end
 
       # PUT /news/:id
       def update
         @news = News.find(params[:id])
         @news.update(news_params)
-        json_response(@news)
+        render json: json_response(@news)
       end
 
       # DELETE /news/:id
       def destroy
         @news = News.find(params[:id])
         @news.destroy
-        json_response(@news)
+        render json: json_response(@news)
       end
 
      private
