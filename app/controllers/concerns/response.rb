@@ -19,13 +19,14 @@ module Response
     }
 
   end
-  def json_response5(object, status = 201)
+  def json_response5(object, status)
      {
        id: object.id,
         title: object.title,
         subtitle: object.subtitle,
         body: object.body,
         created_at: object.created_at,
+        status: status
     }
   end
   def json_response3(object, status = :ok)
@@ -44,12 +45,13 @@ module Response
     }
 
   end
-  def json_response6(object, status = 201)
+  def json_response6(object, status)
      {
        id: object.id,
         author: object.author,
         comment: object.comment,
         created_at: object.created_at,
+        status: status
     }
   end
 end
