@@ -24,6 +24,12 @@ module Api
         render json: json_response(@news)
       end
 
+      def put
+        @news = News.find(params[:id])
+        @news.update(news_params2)
+        render json: json_response(@news)
+      end
+
       # DELETE /news/:id
       def destroy
         @news = News.find(params[:id])
@@ -35,6 +41,13 @@ module Api
 
      def news_params
        # whitelist params
+       params.permit(:title, :subtitle, :body)
+     end
+     def news_params2
+       # whitelist params
+       params.require(:title)
+       params.require(:subtitle)
+       params.require(:body)
        params.permit(:title, :subtitle, :body)
      end
 

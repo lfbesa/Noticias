@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #mount GrapeSwaggerRails::Engine, at: "/documentation"
   namespace :api do
     namespace :v1, defaults: { format: :json } do
+      put 'news/:id', to: 'news#put'
       resources :news do
         resources :opinions, :path => "comments"
       end
