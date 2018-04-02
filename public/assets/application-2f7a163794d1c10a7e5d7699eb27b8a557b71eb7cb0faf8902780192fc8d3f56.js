@@ -216,7 +216,7 @@ Released under the MIT license
         xhr.open(options.type, options.url, true);
         xhr.setRequestHeader('Accept', options.accept);
         if (typeof options.data === 'string') {
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         }
         if (!options.crossDomain) {
           xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
