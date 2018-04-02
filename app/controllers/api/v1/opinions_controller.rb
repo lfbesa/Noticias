@@ -18,7 +18,7 @@ module Api
       # POST /news/:news_id/opinions
       def create
         @op = @news.opinions.create!(opinion_params)
-        render json: json_response6(@op, :created)
+        render json: json_response3(@op, :created), status: :created
       end
 
       # PUT /news/:news_id/opinions/:id
