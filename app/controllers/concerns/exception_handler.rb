@@ -3,9 +3,8 @@ module ExceptionHandler
   extend ActiveSupport::Concern
 
   included do
-    response.headers['Content-Type'] = 'application/json'
     rescue_from ActiveRecord::RecordNotFound do |e|
-      json_response({ message: e.message }, :not_found)
+      json_response({ message: e.message }, :not_found, {title: 'hola'})
     end
 
     rescue_from ActiveRecord::RecordInvalid do |e|
