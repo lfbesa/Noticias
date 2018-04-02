@@ -19,6 +19,16 @@ module Response
     }
 
   end
+  def json_response5(object, status = :ok)
+     {
+       id: object.id,
+        title: object.title,
+        subtitle: object.subtitle,
+        body: object.body,
+        created_at: object.created_at,
+        status: 201
+    }
+  end
   def json_response3(object, status = :ok)
      {
        id: object.id,
@@ -34,5 +44,14 @@ module Response
         end
     }
 
+  end
+  def json_response6(object, status = :ok)
+     {
+       id: object.id,
+        author: object.author,
+        comment: object.comment,
+        created_at: object.created_at,
+        status: 201
+    }
   end
 end
