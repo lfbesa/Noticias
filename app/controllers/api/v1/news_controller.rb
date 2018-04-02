@@ -3,6 +3,7 @@ module Api
     class NewsController < ApplicationController
 
       def index
+        response.headers['Content-Type'] = 'application/json'
         @news = News.all
         render json: json_response2(@news)
       end
